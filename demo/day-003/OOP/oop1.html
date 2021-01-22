@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //1. objek literal
+        // let Mahasiswa1 = {
+        //     name: 'Burhan', //property
+        //     energi: 10,
+        //     makan: function(porsi) {
+        //         this.energi = this.energi + porsi;
+        //         console.log(`Halo ${this.name}, selamat makan`)
+        //     }
+        // }
+
+        // let Mahasiswa2 = {
+        //     name: 'Sarah', //property
+        //     energi: 15,
+        //     makan: function(porsi) {
+        //         this.energi = this.energi + porsi;
+        //         console.log(`Halo ${this.name}, selamat makan`)
+        //     }
+        // }
+
+        // 2. function declaration
+
+        // function Mahasiswa(nama, energi) { //buat template nya
+        //     let mahasiswa = {};
+        //     mahasiswa.nama = nama;
+        //     mahasiswa.energi = energi;
+
+        //     mahasiswa.makan = function(porsi) {
+        //         this.energi += porsi;
+        //         console.log(`halo ${this.nama}, selamat makan`);
+        //     };
+
+        //     mahasiswa.main = function(jam) {
+        //         this.energi -= jam;
+        //         console.log(`halo ${this.nama}, selmat main`)
+        //     };
+
+        //     return mahasiswa;
+        // };
+
+        // let burhan = Mahasiswa('Burhan', 30);
+        // let sarah = Mahasiswa('Sarah', 20);
+
+        //membuat objek terpisah
+        //objek yang pertama berisi method 
+        //akan dihubungkan dengan objek mahasiswa
+
+        // const methodMahasiswa = {
+
+        //     makan: function(porsi) {
+        //         this.energi += porsi;
+        //         console.log(`Halo ${this.nama}, selamat makan`)
+        //     },
+
+        //     main: function(jam) {
+        //         this.energi += jam;
+        //         console.log(`Halo ${this.nama}, selamat main`)
+        //     },
+
+        //     tidur: function(jam) {
+        //         this.energi += jam * 2;
+        //         console.log(`Halo ${this.nama}, selamat bobok`)
+        //     }
+        // };
+
+        // function Mahasiswa(nama, energi) {
+        //     let mahasiswa = {};
+        //     mahasiswa.nama = nama;
+        //     mahasiswa.energi = energi;
+        mahasiswa.makan = methodMahasiswa.makan; //ambil dari objek lain
+        mahasiswa.main = methodMahasiswa.main;
+        mahasiswa.tidur = methodMahasiswa.tidur;
+
+        //     return mahasiswa;
+
+        // }
+
+        // let burhan = Mahasiswa('Burhan', 20);
+        // let sarah = Mahasiswa('Sarah', 20);
+
+        //3. constructor function pakai keyword new
+        // function Mahasiswa(nama, energi) {
+        //     this.nama = nama;
+        //     this.energi = energi;
+
+        //     this.makan = function(porsi) {
+        //         this.energi += porsi;
+        //         console.log(`Halo ${this.nama}, selamat makan`)
+        //     }
+        // }
+
+
+        // let burhan = new Mahasiswa('burhan', 10);
+
+
+        //objek.create() solusi lain yang lebih efektif
+        const mehtodMahasiswa = {
+
+            makan: function(porsi) {
+                this.energi += porsi;
+                console.log(`halo ${this.nama}, selamat makan`)
+            },
+
+            main: function(jam) {
+                this.energi -= jam;
+                console.log(`Halo ${this.nama}, selamat main`)
+            },
+
+            tidur: function(jam) {
+                this.energi += jam * 2;
+                console.log(`halo ${this.nama}, selamat tidur`)
+            },
+
+            olahraga: function(jam) {
+                this.energi -= jam;
+                console.log(`Halo ${this.name}, selamat olahraga`)
+            }
+        };
+
+        function Mahasiswa(nama, energi) {
+            let mahasiswa = Object.create(mehtodMahasiswa);
+            mahasiswa.nama = nama;
+            mahasiswa.energi = energi;
+
+
+            return mahasiswa;
+        }
+
+        let burhan = Mahasiswa('Burhan', 10);
+        let sarah = Mahasiswa('sarah', 20);
+    </script>
+</body>
+
+</html>

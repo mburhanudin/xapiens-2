@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asyn Function</title>
+</head>
+
+<body>
+    <script>
+        // async function hello(){
+        //     return "Hello";
+        // }
+
+        // console.log(hello());
+        const fs = require('fs');
+
+        let content;
+        fs.readFile('text.txt', 'utf-8', (err, data) => {
+            if (err) {
+                throw new Error('Error in reading source');
+            }
+
+            content = data;
+        });
+
+        console.log(content);
+    </script>
+</body>
+
+</html>

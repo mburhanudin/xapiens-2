@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //object literal
+        //tidak efektif untuk objek yang banyak karena deklarasi properti dan method dan berulang
+        // let mahasiswa1 = {
+        //     name: 'Burhan',
+        //     energi: 10,
+        //     makan: function(porsi) {
+        //         this.energi = this.energi + porsi;
+        //         console.log(`Halo ${this.name}, selamat makan!`)
+        //     }
+        // }
+
+        // let mahasiswa2 = {
+        //     name: 'Sarah',
+        //     energi: 20,
+        //     makan: function(porsi) {
+        //         this.energi = this.energi + porsi;
+        //         console.log(`Halo ${this.name}, selamat makan!`)
+        //     }
+        // }
+
+        //function declaration
+        //solusi dari objek literal, karena cuman buat 1 template, dan nilai nya saja yang diisi berulang
+        //tapi, kalau kita melakukan instasiasi pada objeknya, ternyata 2 method tsb tetap dibuat dan disimpan di memori
+        // function Mahasiswa(nama, energi) { //template
+        //     let mahasiswa = {};
+        //     mahasiswa.nama = nama;
+        //     mahasiswa.energi = energi;
+
+        //     mahasiswa.makan = function(porsi) {
+        //         this.energi += porsi;
+        //         console.log(`Halo ${this.nama}, selamat makan`)
+        //     }
+
+        //     mahasiswa.main = function(jam) {
+        //         this.energi -= jam;
+        //         console.log(`Halo ${this.nama}, selamat bermain`)
+        //     }
+
+        //     return mahasiswa;
+        // }
+
+        // let burhan = Mahasiswa('Burhan', 10);
+        // let sarah = Mahasiswa('Sarah', 20);
+
+        //kode diatas akan tetap disimpan terus dalam memori 
+        //saat ada instansiasi lagi 
+        //ada solusi lainya
+        //membuat objek terpisah
+        //objeknya berisi method 
+        //kemudian dihubungkan dengan objek mahasiswa yang sudah dibuat sebelumnya
+        //kalau kaya gini hanya disimpan 1x dari memori
+        //ketika kita membuat instansiasi hanya mengacu ke objek yang sudah dibuat diatas
+        //tidak dibuat berulang
+        //ada masalah lain kalau buat methid baru
+        //harus di daftarkan lagi method nya di objek mahasiswa
+        //artinya kita mengelola 2 objek
+        //objek literal yang berisi method / function dan objek function declaration
+
+        // const methodMahasiswa = {
+
+        //     makan: function(porsi) {
+        //         this.energi += porsi;
+        //         console.log(`Halo ${this.nama}, selamat makan`)
+        //     },
+
+        //     main: function(jam) {
+        //         this.energi -= jam;
+        //         console.log(`Halo ${this.nama}, selamat bermain`)
+        //     },
+
+        //     tidur: function(jam) {
+        //         this.energi += jam * 2;
+        //         console.log(`Halo ${this.nama}, Selamat tidur`)
+        //     }
+        // };
+
+        // function Mahasiswa(nama, energi) { //template
+        //     let mahasiswa = {};
+        //     mahasiswa.nama = nama; //nama mengambil dari argumen / param
+        //     mahasiswa.energi = energi;
+        //     mahasiswa.makan = methodMahasiswa.makan; //ambil dari objek lain
+        //     mahasiswa.main = methodMahasiswa.main;
+        //     mahasiswa.tidur = methodMahasiswa.tidur;
+
+        //     return mahasiswa;
+        // }
+
+        // let burhan = Mahasiswa('Burhan', 10);
+        // let sarah = Mahasiswa('Sarah', 20);
+
+
+        //constructor function pakai keyword new
+        // function Mahasiswa(nama, energi) { //template
+        //     this.nama = nama;
+        //     this.energi = energi;
+
+        //     this.makan = function(porsi) {
+        //         this.energi += porsi;
+        //         console.log(`Halo ${this.nama}, selamat makan`)
+        //     }
+
+        //     this.main = function(jam) {
+        //         this.energi -= jam;
+        //         console.log(`Halo ${this.nama}, selamat bermain`)
+        //     }
+        // }
+
+        // let burhan = new Mahasiswa('Burhan', 10)
+
+        // //menggunakan classes
+        // class Mahasiswa {
+        //     constructor(nama, energi) {
+        //         this.nama = nama;
+        //         this.energi = energi;
+        //     }
+
+        //     detail() {
+        //         return this.nama + " " + this.energi;
+        //     }
+        // }
+
+        // const Mahasiswa1 = new Mahasiswa("Burhan", 20);
+        // const Mahasiswa2 = new Mahasiswa("Sarah", 30);
+
+        // console.log(Mahasiswa1.nama);
+        // console.log(Mahasiswa1.energi);
+
+
+        //objek.create() solusi lain yang lebih efektif
+
+        const methodMahasiswa = {
+
+            makan: function(porsi) {
+                this.energi += porsi;
+                console.log(`Halo ${this.nama}, selamat makan`)
+            },
+
+            main: function(jam) {
+                this.energi -= jam;
+                console.log(`Halo ${this.nama}, selamat bermain`)
+            },
+
+            tidur: function(jam) {
+                this.energi += jam * 2;
+                console.log(`Halo ${this.nama}, Selamat tidur`)
+            }
+        };
+
+        function Mahasiswa(nama, energi) { //template
+            let mahasiswa = Object.create(methodMahasiswa); //bedanya kita bisa langsung param didalamnya, mengacu ke parrent objekny
+            mahasiswa.nama = nama; //nama mengambil dari argumen / param
+            mahasiswa.energi = energi;
+
+            return mahasiswa;
+        }
+
+        let burhan = Mahasiswa('Burhan', 10);
+        let sarah = Mahasiswa('Sarah', 20);
+    </script>
+</body>
+
+</html>
