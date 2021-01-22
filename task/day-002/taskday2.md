@@ -10,16 +10,5 @@
 
 2. Buatlah program fungsi untuk menentukan suatu bilangan merupakan bilangan ganjil atau genap.
 
-3. Buatlah program untuk menentukan nilai maksimum, minimum, nilai tengah, dan rata-rata dari suatu deretan angka.
-
-### Contoh:
-
-```
--6, -4, 0, 1, 2, 2, 3, 10, 12, 44, 52, 72, 98
-
-Max:     98
-Min:     -6
-
-```
-4. Buatlah program yang dapat menentukan tahun kabisat
+3. Buatlah program yang dapat menentukan tahun kabisat
 

@@ -33,22 +33,7 @@ Output di browser: 4, 5, 6, 7, 8
 
 Buatlah script untuk mencetak bilangan ganjil antara 1 hingga 100.
 
-
-## #4 Membalikkan Kata
-
-Baliklah urutan kata yang terdapat di dalam kalimat 
-
-```
-saya ingin makan nasi goreng
-```
-
-menjadi 
-
-```
-goreng nasi makan ingin saya
-```
-
-## #5 Mirror
+## #4 Mirror
 
 Buatlah script untuk menggabungkan inputan menjadi output seperti berikut
 
@@ -60,39 +45,7 @@ Input: avg
 Output: avggva
 ```
 
-## #6 Palindrome
-
-Buatlah script untuk mendeteksi apakah suatu kata atau kalimat merupakan kata [palindrome](https://id.wikipedia.org/wiki/Palindrom) atau bukan.
-
-### Contoh
-
-```
-Input: Makan
-Ouput: Bukan palindrome
-
-Input: Malam
-Ouput: Palindrome
-
-Input: Budi pergi ke sekolah
-Ouput: Bukan palindrome
-
-Input: Kasur ini rusak
-Ouput: Palindrome
-
-Input: Ibu Ratna antar ubi
-Ouput: Palindrome
-
-Input: Race Car
-Ouput: Palindrome
-
-Input: Never odd or even
-Ouput: Palindrome
-
-Input: A man, a plan, a canal. Panama.
-Ouput: Palindrome
-```
-
-## #7 Bubble Sort
+## #5 Bubble Sort
 
 Urutkankan angka-angka berikut ini dengan menggunakan algoritma __bubble sort__.
 
